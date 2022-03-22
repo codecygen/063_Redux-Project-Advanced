@@ -1,6 +1,8 @@
 import Card from '../UI/Card';
 import classes from './ProductItem.module.css';
 
+const DUMMY_PRODUCTS = [];
+
 const ProductItem = (props) => {
   const { title, price, description } = props;
 
