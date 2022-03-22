@@ -1,3 +1,5 @@
+// React-Redux-Toolkit-Cart-Slice-Manipulated-File
+
 import Card from '../UI/Card';
 import classes from './Cart.module.css';
 import CartItem from './CartItem';

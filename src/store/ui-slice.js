@@ -1,3 +1,5 @@
+// React-Redux-Toolkit-UI-Slice-File
+
 import { createSlice } from '@reduxjs/toolkit';
 
 const uiSlice = createSlice({
