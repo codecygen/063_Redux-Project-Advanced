@@ -1,10 +1,30 @@
+// React-Redux-Toolkit-Cart-Slice-Manipulated-File
+
+// React-Redux-Toolkit
+import { cartActions } from '../../store/cart-slice';
+// React-Redux-Toolkit
+import { useDispatch } from 'react-redux';
+
 import Card from '../UI/Card';
 import classes from './ProductItem.module.css';
 
-const DUMMY_PRODUCTS = [];
-
 const ProductItem = (props) => {
-  const { title, price, description } = props;
+  // React-Redux-Toolkit
+  const dispatch = useDispatch();
+
+  // Destructuring
+  const { title, price, description, id } = props;
+
+  // React-Redux-Toolkit
+  const addToCartHandler = () => {
+    dispatch(
+      cartActions.addItemToCart({
+        id,
+        title,
+        price
+      })
+    );
+  };
 
   return (
     <li className={classes.item}>
@@ -15,7 +35,8 @@ const ProductItem = (props) => {
         </header>
         <p>{description}</p>
         <div className={classes.actions}>
-          <button>Add to Cart</button>
+          {/* React-Redux-Toolkit */}
+          <button onClick={addToCartHandler}>Add to Cart</button>
         </div>
       </Card>
     </li>

@@ -1,7 +1,8 @@
 // React-Redux-Toolkit-UI-Slice-Manipulated-File
 
 // React-Redux-Toolkit
-import { useDispatch } from 'react-redux';
+// 
+import { useDispatch, useSelector } from 'react-redux';
 
 // React-Redux-Toolkit
 import { uiActions } from '../../store/ui-slice';
@@ -13,6 +14,9 @@ const CartButton = (props) => {
   const dispatch = useDispatch();
 
   // React-Redux-Toolkit
+  const cartQuantity = useSelector(state => state.cart.totalQuantity);
+
+  // React-Redux-Toolkit
   const toggleCartHandler = () => {
     dispatch(uiActions.toggle());
   };
@@ -21,7 +25,7 @@ const CartButton = (props) => {
     // React-Redux-Toolkit
     <button className={classes.button} onClick={toggleCartHandler}>
       <span>My Cart</span>
-      <span className={classes.badge}>1</span>
+      <span className={classes.badge}>{cartQuantity}</span>
     </button>
   );
 };
