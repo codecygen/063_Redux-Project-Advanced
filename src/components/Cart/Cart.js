@@ -15,10 +15,12 @@ const Cart = (props) => {
     <Card className={classes.cart}>
       <h2>Your Shopping Cart</h2>
       <ul>
+        {/* React-Redux-Toolkit */}
         {cartItems.map(item => (
           <CartItem
             key= {item.id}
             item={{ 
+              id: item.id,
               title: item.name,
               quantity: item.quantity,
               total: item.totalPrice,

@@ -1,7 +1,32 @@
+// React-Redux-Toolkit-Cart-Slice-Manipulated-File
+
+// React-Redux-Toolkit
+import { useDispatch } from 'react-redux';
+
 import classes from './CartItem.module.css';
 
+// React-Redux-Toolkit
+import { cartActions } from '../../store/cart-slice';
+
 const CartItem = (props) => {
-  const { title, quantity, total, price } = props.item;
+  // React-Redux-Toolkit
+  const dispatch = useDispatch();
+
+  const { title, quantity, total, price, id } = props.item;
+
+  // React-Redux-Toolkit
+  const removeItemHandler = () => {
+    dispatch(cartActions.removeItemFromCart(id));
+  };
+
+  // React-Redux-Toolkit
+  const addItemHandler = () => {
+    dispatch(cartActions.addItemToCart({
+      id,
+      title,
+      price
+    }));
+  };
 
   return (
     <li className={classes.item}>
@@ -17,8 +42,8 @@ const CartItem = (props) => {
           x <span>{quantity}</span>
         </div>
         <div className={classes.actions}>
-          <button>-</button>
-          <button>+</button>
+          <button onClick={removeItemHandler}>-</button>
+          <button onClick={addItemHandler}>+</button>
         </div>
       </div>
     </li>

@@ -50,3 +50,9 @@ const show = useSelector(state => state.counter.showCounter);
 ```
 
 useSelector is used to update the current state in the component so that it can be used inside that component as a source of data.
+
+```javascript
+const { title, quantity, total, price, id } = props.item;
+```
+
+Regardless of their order, if the props.item is "{id: 'p1', title: 'Book', quantity: 1, total: 6, price: 6}", destructuring will match keys of the props.item object with the assigned names on the left hand side of the equation.
