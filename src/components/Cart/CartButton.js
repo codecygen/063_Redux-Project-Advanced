@@ -1,7 +1,6 @@
 // React-Redux-Toolkit-UI-Slice-Manipulated-File
 
-// React-Redux-Toolkit
-// 
+// React-Redux-Toolkit 
 import { useDispatch, useSelector } from 'react-redux';
 
 // React-Redux-Toolkit

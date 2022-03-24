@@ -56,3 +56,13 @@ const { title, quantity, total, price, id } = props.item;
 ```
 
 Regardless of their order, if the props.item is "{id: 'p1', title: 'Book', quantity: 1, total: 6, price: 6}", destructuring will match keys of the props.item object with the assigned names on the left hand side of the equation.
+
+# Async Code Implementation - Redux
+
+- React-Redux-Async-Code-Implementation
+
+IMPORTANT NOTE:
+
+Reducers must be pure, side-effect free, synchronous functions. This is why, async code is not used in reducer.
+
+Async tasks and side-effect should be executed inside the "components" (e.g. useEffect()) and Inside the "action creators".
