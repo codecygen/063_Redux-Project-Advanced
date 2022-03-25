@@ -66,3 +66,8 @@ IMPORTANT NOTE:
 Reducers must be pure, side-effect free, synchronous functions. This is why, async code is not used in reducer.
 
 Async tasks and side-effect should be executed inside the "components" (e.g. useEffect()) and Inside the "action creators".
+
+# Thunk
+Thunk is a function that delays an action until later. It means an action creator function does NOT return the action itself but another function which eventually returns the action.
+
+- React-Redux-Action-Creator-Thunk
