@@ -42,24 +42,24 @@ function App() {
 
   // React-Redux-Async-Code-Implementation
   useEffect(() => {
-    dispatch(uiActions.showNotification({
-      status: 'pending',
-      title: 'Sending...',
-      message: 'Sending cart data!'
-    }));
-
     const sendCartData = async () => {
       const res = await fetch('https://food-order-app-database-fa642-default-rtdb.firebaseio.com/cart.json', {
         method: 'PUT',
         body: JSON.stringify(cart),
       });
 
+      dispatch(uiActions.showNotification({
+        status: 'pending',
+        title: 'Sending...',
+        message: 'Sending cart data!'
+      }));
 
       if (!res.ok) {
         throw new Error('Sending cart data failed.');
       }
 
       const resData = await res.json();
+      console.log(resData);
 
       dispatch(uiActions.showNotification({
         status: 'success',
