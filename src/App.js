@@ -3,14 +3,15 @@
 // React-Redux-Async-Code-Implementation
 import { useEffect } from 'react';
 
-// React-Redux-Async-Code-Implementation
-import { uiActions } from './store/ui-slice';
-
 // React-Redux-Toolkit
 import { useSelector, useDispatch } from 'react-redux';
 
 // React-Redux-Async-Code-Implementation
 import Notifications from './components/UI/Notifications';
+
+// React-Redux-Action-Creator-Thunk
+// React-Redux-Async-Code-Implementation
+import { sendCartData } from './store/cart-slice';
 
 import Cart from './components/Cart/Cart';
 import Layout from './components/Layout/Layout';
@@ -40,50 +41,16 @@ function App() {
   // React-Redux-Async-Code-Implementation
   const notification = useSelector(state => state.ui.notification);
 
-  // React-Redux-Async-Code-Implementation
+  
   useEffect(() => {
-
-    
-    // const sendCartData = async () => {
-    //   const res = await fetch('https://food-order-app-database-fa642-default-rtdb.firebaseio.com/cart.json', {
-    //     method: 'PUT',
-    //     body: JSON.stringify(cart),
-    //   });
-
-    //   dispatch(uiActions.showNotification({
-    //     status: 'pending',
-    //     title: 'Sending...',
-    //     message: 'Sending cart data!'
-    //   }));
-
-    //   if (!res.ok) {
-    //     throw new Error('Sending cart data failed.');
-    //   }
-
-      const resData = await res.json();
-      console.log(resData);
-
-      dispatch(uiActions.showNotification({
-        status: 'success',
-        title: 'Success!',
-        message: 'Data is successfully sent!'
-      }));
-    };
-
-    // Prevents cart data to be overwritten to Firebase when
-    // the app is restarted
     if (isInitial) {
       isInitial = false;
       return;
     }
 
-    sendCartData().catch(err => {
-      dispatch(uiActions.showNotification({
-        status: 'error',
-        title: 'Error!',
-        message: 'Data is failed to sent!'
-      }));
-    });
+    // React-Redux-Action-Creator-Thunk
+    // React-Redux-Async-Code-Implementation
+    dispatch(sendCartData(cart));
   }, [cart, dispatch]);
 
   return (
