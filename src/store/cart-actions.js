@@ -10,13 +10,13 @@ export const fetchCartData = () => {
         const fetchData = async () => {
             const res = await fetch('https://food-order-app-database-fa642-default-rtdb.firebaseio.com/cart.json');
 
-          const data = await res.json();
+            const data = await res.json();
 
-          if (!res.ok) {
-              throw new Error('Could not fetch cart data!');
-          }
+            if (!res.ok) {
+                throw new Error('Could not fetch cart data!');
+            }
 
-          return data;
+            return data;
         };
 
         try {
@@ -49,7 +49,7 @@ export const sendCartData = (cart) => {
         const sendRequest = async () => {
             const res = await fetch('https://food-order-app-database-fa642-default-rtdb.firebaseio.com/cart.json', {
                 method: 'PUT',
-                body: JSON.stringify({items: cart.items, totalQuantity: cart.totalQuantity}),
+                body: JSON.stringify({ items: cart.items, totalQuantity: cart.totalQuantity }),
             });
 
             if (!res.ok) {
